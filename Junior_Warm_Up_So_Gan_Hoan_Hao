@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+int n,t;
+ll tonguocso(int x){
+    ll res=0;
+    for (int i=1;i<=sqrt(x);i++){
+        if (x%i==0){
+            res+=x/i;
+            if (x/(x/i)!=x/i)
+                res+=x/(x/i);
+        }
+    }
+    return res;
+}
+int main()
+{
+    //freopen("SGHH.INP","r",stdin);
+    //freopen("SGHH.OUT","w",stdout);
+    cin>>n;int a[n],k=0;
+    for (int i=0;i<n;i++){
+        cin>>t;
+        if (2*t<=tonguocso(t)){
+            a[k]=t;
+            k++;
+        }
+    }
+    cout<<k<<"\n";
+    for (int i=0;i<k;i++)
+        cout<<a[i]<<"\n";
+    return 0;
+}

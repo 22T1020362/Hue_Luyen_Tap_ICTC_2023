@@ -1,0 +1,23 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+    long long n;
+    cin >> n;
+    long long tam = 3, tong = 0;
+    while (tam <= n)
+    {
+    	tong =tong + tam;
+    	tam = tam + 3;
+	}
+	tam = 5;
+    while (tam <= n)
+    {
+    	if (tam % 3 != 0) tong =tong+tam;
+    	tam =tam + 5;
+	}
+	cout << tong;
+    return 0;
+}

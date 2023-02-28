@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+ll lt(long long a,long long n)
+{
+    ll c=1000000000;
+    if(n==1)
+        return a;
+    if(n==0)
+        return 1;
+    long long t=lt(a,n/2)%c;
+    if(n%2==0)
+        return (t*t)%c;
+    else
+    {
+        return ((t*t)%c*(a%c))%c;
+    }
+}
+int main()
+{
+    long long n,x=1000000000;
+    cin>>n;
+    cout<<(((n+1)%x)*(lt(2,n-2)%x))%x;
+    return 0;
+}

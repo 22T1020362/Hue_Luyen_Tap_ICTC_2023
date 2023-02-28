@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+string s;
+int main()
+{
+    //freopen("CH11.INP","r",stdin);
+    //freopen("CH11.OUT","w",stdout);
+    cin>>s;
+    int chan=0,le=0;
+    for (int i=0;i<s.length();i++){
+        if (i%2==0)
+            chan+=s[i]-48;
+        else
+            le+=s[i]-48;
+    }
+    if (abs(chan-le)%11==0)
+        cout<<abs(chan-le)<<" "<<"YES";
+    else
+        cout<<abs(chan-le)<<" "<<"NO";
+    return 0;
+}

@@ -1,0 +1,14 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main() {
+	long long n, ans=0;
+	cin>>n;
+	while(n--) {
+		long long x;
+		cin>>x;
+		ans+=x;
+	}
+	if(ans%2==0) cout<<"YES";
+	else cout<<"NO";
+	return 0;
+}

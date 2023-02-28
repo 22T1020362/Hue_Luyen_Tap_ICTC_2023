@@ -1,0 +1,13 @@
+def count_paths_dp(n):
+    # tạo một ma trận (n+1)x(n+1) và khởi tạo các giá trị đầu tiên là 0
+    dp = [[0 for i in range(n+1)] for j in range(n+1)]
+    dp[0][1] = 1  # bắt đầu từ ô (1,1), gán giá trị cho ô đầu tiên
+
+    # tính toán số đường đi từ ô (1,1) đến ô (n,n)
+    for i in range(1, n+1):
+        for j in range(1, n+1):
+            dp[i][j] = dp[i-1][j] + dp[i][j-1]
+    return dp[n][n]
+n = int(input())
+count2 = count_paths_dp(n)
+print(count2)

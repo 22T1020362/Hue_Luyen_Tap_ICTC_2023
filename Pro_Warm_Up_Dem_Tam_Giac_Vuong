@@ -1,0 +1,43 @@
+#include <bits/stdc++.h>
+ 
+#define ll long long
+#define el "\n"
+#define endl "\n"
+#define len(s) s.length()
+#define io freopen("input.inp", "r", stdin);freopen("output.out", "w", stdout);
+
+bool dp[10][10];
+ 
+using namespace std;
+ 
+int main()
+{    
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    //io;
+    
+    map<int, int> f1, f2;
+
+    long long n, ans = 0;
+    cin >> n;
+    int x[n], y[n];
+    for (int i = 0; i < n; ++i)
+    {
+        cin >> x[i] >> y[i];
+        f1[x[i]]++;
+        f2[y[i]]++;
+    }
+
+    for (int i = 0; i < n; ++i)
+    {
+        f1[x[i]]--;
+        f2[y[i]]--;
+        ans += f1[x[i]]*f2[y[i]];
+        f1[x[i]]++;
+        f2[y[i]]++;
+    }
+
+    cout << ans;
+    return 0;
+}

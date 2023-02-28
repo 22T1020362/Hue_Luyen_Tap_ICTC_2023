@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+#define ll long long
+#define ii pair<ll,ll>
+#define fi first
+#define se second
+#define pb push_back
+#define eb emplace_back
+#define lwb lower_bound
+#define upb upper_bound
+#define ins insert
+#define del erase
+using namespace std;
+const ll big=1e3+9;
+const ll inf=1e15;
+ll n,a[big][big];
+ll solve(ll n){
+    n%=2021;
+    return ((n*(n+1)*(2*n+1))/6)%2021;
+}
+int main(){
+	ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+	//freopen(".INP","r",stdin); freopen(".OUT","w",stdout);
+	cin>>n; cout<<solve(n);
+	return 0;
+}

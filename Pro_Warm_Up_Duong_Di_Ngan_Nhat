@@ -1,0 +1,70 @@
+#include <bits/stdc++.h>
+#define fastIO ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+#define MOD 1000000007LL
+#define MOD2 123456789LL
+#define endl '\n'
+#define INFINITE 2147483647LL
+#define INFINITE2 9223372036854775807
+#define llll pair<ll,ll>
+typedef long long ll;
+typedef unsigned long long ull;
+typedef long double ld;
+
+using namespace std;
+
+ll n,m,q;
+ll d[5005][5005],w[5005][5005];
+
+void init()
+{
+    for(int u=1;u<=n;u++) for(int v=1;v<=n;v++) d[u][v]=w[u][v];
+}
+
+void solve()
+{
+    cin >> n >> m >> q;
+    for(int i=1;i<=n;i++) for(int j=1;j<=n;j++) w[i][j]=INFINITE2/3;
+    for(int i=1;i<=m;i++)
+    {
+        ll u,v,t;
+        cin >> u >> v >> t;
+        w[u][v]=w[v][u]=min(w[u][v],t);
+    }
+    init();
+    for(int k=1;k<=n;k++)
+    {
+        for(int u=1;u<=n;u++)
+        {
+            for(int v=1;v<=n;v++)
+            {
+                if(d[u][v]>d[u][k]+d[k][v])
+                {
+                    d[u][v]=d[v][u]=d[u][k]+d[k][v];
+                }
+            }
+        }
+    }
+    for(int u=1;u<=n;u++)
+    {
+        for(int v=1;v<=n;v++)
+        {
+            if(u==v) d[u][v]=0;
+            else if(d[u][v]>=1000000000000000LL||d[u][v]<0) d[u][v]=-1;
+        }
+    }
+    for(int i=1;i<=q;i++)
+    {
+        ll u,v;
+        cin >> u >> v;
+        cout << d[u][v] << endl;
+    }
+}
+
+int main()
+{
+    fastIO
+    //freopen("FLOYD_WARSHALL.inp","r",stdin);
+    //freopen("FLOYD_WARSHALL.out","w",stdout);
+    solve();
+    return 0;
+}
